@@ -50,6 +50,13 @@ const candy = [
 const btn = document.querySelector(".filter-button");
 const gallary = document.querySelector(".gallary");
 
+function displayGallary(finalFilter){
+    let display = finalFilter.map(function(item){
+        return` <img src=${item.img} alt=${item.img} />`
+    }).join(""); 
+    gallary.innerHTML = display;
+}
+
 // load the button
 function displayButton(){
     const cate = candy.reduce(function(values ,item){
@@ -84,12 +91,6 @@ function displayButton(){
     })
 }
 
-function displayGallary(finalFilter){
-    let display = finalFilter.map(function(item){
-        return` <img src=${item.img} alt=${item.img} />`
-    }).join(""); 
-    gallary.innerHTML = display;
-}
 
 window.addEventListener('DOMContentLoaded',function(){
     displayButton();
